@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn  } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Entity, Column, PrimaryColumn  } from "typeorm";
+import { v4 as uuid } from "uuid"
 
 @Entity("produtos")
 export class Produtos {
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryColumn()
     id: string;
     
     @Column()
@@ -15,11 +15,9 @@ export class Produtos {
     @Column()
     description: string;
 
-    construtor() {
-        const id = uuid();
+    constructor() {
         if(!this.id) {
-            this.id = id;
+            this.id = uuid();
         }
-        console.log(id);
     }
 }
